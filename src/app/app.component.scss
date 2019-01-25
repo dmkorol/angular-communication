@@ -1,0 +1,24 @@
+.wrapper {
+  padding-top: 20px;
+  width: 80%;
+  min-width: 800px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+.menu {
+  position: absolute;
+  width: 300px;
+
+  li {
+    padding-bottom: 1rem;
+  }
+}
+
+.content {
+  margin-left: 300px;
+}
