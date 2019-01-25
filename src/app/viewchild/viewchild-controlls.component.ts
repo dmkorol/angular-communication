@@ -4,31 +4,36 @@ import { TemplateTimerComponent } from '../template/template-timer.component';
 @Component({
   selector: 'app-viewchild-controlls',
   template: `
+    <h2>Single</h2>
+    <div>
+      <button (click)="isTimerShown=!isTimerShown">Toggle timer</button>
+      <button (click)="getTimer()">Get Single Timer</button>
+    </div>
+    <hr>
+    <app-template-timer *ngIf="isTimerShown"></app-template-timer>
+    <br>
+    <br>
+
     <h2>ngFor</h2>
     <div>
       <button (click)="start()">Start all</button>
       <button (click)="stop()">Stop all</button>
       <button (click)="add()">Add</button>
+      <button (click)="isTimerNgForShown=!isTimerNgForShown">Toggle timers</button>
     </div>
     <hr>
-    <app-template-timer *ngFor="let item of vals" [value]="item"></app-template-timer>
-
+    <ng-container *ngIf="isTimerNgForShown">
+      <app-template-timer *ngFor="let item of vals" [value]="item"></app-template-timer>
+    </ng-container>
     <br>
     <br>
-    <h2>Single</h2>
-    <div>
-      <button (click)="isTimerShown=!isTimerShown">Show Single timer</button>
-      <button (click)="getTimer()">Get Single Timer</button>
-    </div>
-    <hr>
-    <app-template-timer *ngIf="isTimerShown"></app-template-timer>
-
   `,
   styles: []
 })
 export class ViewchildControllsComponent implements OnInit, AfterViewInit {
   vals = [1, 2, 4, 5, 7];
   isTimerShown = false;
+  isTimerNgForShown = true;
 
   @ViewChildren(TemplateTimerComponent) timers: QueryList<TemplateTimerComponent>;
 
