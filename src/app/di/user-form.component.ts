@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentInit, Component, ContentChildren, OnInit, QueryList, ViewChild } from '@angular/core';
+import { NgForm, NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-user-form',
@@ -12,15 +13,24 @@ import { Component, OnInit } from '@angular/core';
         <label>Lastname:</label>
         <input type="text" name="lastName" ngModel>
       </div>
-      <app-user-form-address></app-user-form-address>
+      <ng-content></ng-content>
     </form>
     <pre>{{ myForm.value | json }}</pre>
   `,
   styles: []
 })
-export class UserFormComponent implements OnInit {
+export class UserFormComponent implements OnInit, AfterContentInit {
+  @ContentChildren(NgModel) public models: QueryList<NgModel>;
+  @ViewChild(NgForm) public form: NgForm;
 
-  constructor() { }
+  ngAfterContentInit() {
+    this.models.toArray().forEach(item => {
+      this.form.addControl(item);
+    });
+  }
+
+  constructor() {
+  }
 
   ngOnInit() {
   }
