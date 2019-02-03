@@ -8,9 +8,9 @@ This project contains examples with approaches how you can setup communications 
 1. Using \# in a view ✅
 1. ViewChildren/ViewChild ✅
 1. ContentChildren/ContentChild ✅
-1. Using ng-template approach for passing template
-1. Service
-1. DependencyInjection
+1. Service ✅
+1. DependencyInjection ✅
+1. Using ng-template approach for passing template -
 
 
 ## Run project
