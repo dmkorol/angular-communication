@@ -10,7 +10,8 @@ This project contains examples with approaches how you can setup communications 
 1. ContentChildren/ContentChild ✅
 1. Service ✅
 1. DependencyInjection ✅
-1. Using ng-template approach for passing template -
+1. **TODO:** Use routing (ex: filters/sorting for table) -
+1. **TODO:** Using ng-template approach for passing template -
 
 
 ## Run project
